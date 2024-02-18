@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bienvenue sur Quiz Game</title>
+    <link rel="stylesheet" href="style.css"> <!-- Lien vers le fichier CSS pour la mise en page -->
+</head>
+<body>
+    <h1>Quiz Game</h1>
+    <div id="question-container">
+        <!-- Le contenu de la question sera rempli ici par JavaScript -->
+    </div>
+
+    <script>
+        // Fonction pour mettre à jour la question et les choix sur la page
+        function updateQuestion(question) {
+            document.getElementById('question-text').textContent = question.text;
+            var choicesDiv = document.getElementById('choices');
+            choicesDiv.innerHTML = '';
+            question.choices.forEach(function(choice) {
+                var radioBtn = document.createElement('input');
+                radioBtn.type = 'radio';
+                radioBtn.name = 'choice';
+                radioBtn.value = choice;
+                choicesDiv.appendChild(radioBtn);
+
+                var label = document.createElement('label');
+                label.textContent = choice;
+                choicesDiv.appendChild(label);
+                choicesDiv.appendChild(document.createElement('br'));
+            });
+        }
+
+        // Fonction pour afficher la réponse de l'utilisateur
+        function displayResponse(response) {
+            document.getElementById('response').textContent = response;
+        }
+
+        // Fonction pour charger la première question lors du chargement de la page
+        window.addEventListener('load', function() {
+            fetch('/').then(function(response) {
+                return response.json(); // Le serveur renvoie la question au format JSON
+            }).then(function(data) {
+                updateQuestion(data); // Mettre à jour la question sur la page
+            }).catch(function(error) {
+                console.error('Erreur lors du chargement de la question:', error);
+            });
+        });
+
+        // Événement de soumission du formulaire (traité par le code du serveur)
+        document.getElementById('question-container').addEventListener('submit', function(event) {
+            event.preventDefault(); // Empêcher le rechargement de la page
+            // Ajouter ici le code pour traiter la réponse de l'utilisateur (envoyer au serveur par AJAX)
+        });
+    </script>
+</body>
+</html>

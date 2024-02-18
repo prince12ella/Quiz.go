@@ -1,0 +1,32 @@
+Q: Quelle est la capitale de la France ?
+C: Paris
+C: Londres
+C: Berlin
+C: Madrid
+A: Paris
+
+Q: Quel est le plus grand océan du monde ?
+C: Pacifique
+C: Atlantique
+C: Indien
+C: Arctique
+A: Pacifique
+
+Q: Quelle est la couleur du ciel par temps clair ?
+C: Bleu
+C: Rouge
+C: Jaune
+A: Bleu
+
+Q: Qui est le meilleur joueur de football dans l'histoire ?
+C: Messi
+C: Ronaldo
+C: Neymar
+A: Messi
+
+Q: Quel est le plus petit pays du monde ?
+C: Russie
+C: France
+C: Oman
+C: Vatican
+A: Vatican
